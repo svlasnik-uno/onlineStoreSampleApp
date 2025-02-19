@@ -17,10 +17,9 @@ def product_list(request, category_slug=None):
                    'products': products,
                    'cart': cart})
 
-def product_detail(request, id, slug):
+def product_detail(request, id):
     product = get_object_or_404(Product,
                                 id=id,
-                                slug=slug,
                                 available=True)
     #set choices for quantity available based on inventory and items in this session's cart
     cart = Cart(request)
